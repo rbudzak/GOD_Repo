@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 app.set("view engine", "jade");
-app.set('views', __dirname + '/views'); 
+app.set('views', __dirname + '/fakeViews'); 
 
 // Forces server to load fakeViews; comment out for real views
 // app.set('views', __dirname + '/fakeViews'); 

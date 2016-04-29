@@ -20,12 +20,12 @@ router.post('/', function(req, res) {
     return tag.trim();
   });
   request(imgPath.replace(pattern, 'json'), function (error, response, body){ // Sends GET request to UploadCare CDN to retrieve EXIF data
-    var geo = JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
+    var geo = {latitude: null, longitude: null} || JSON.parse(body).original.geo_location; // Retrieve geolocation data from the JSON received from the CDN
     newPost = req.body.post;
 
     newPost.lat = geo.latitude || 37.78758641666666
     newPost.long = geo.longitude || -122.39646169444445
-    newPost.user_id = req.user.id;
+    newPost.user_id = 1;
 
 
     knex('posts').insert(newPost)
