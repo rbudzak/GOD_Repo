@@ -14,3 +14,6 @@ block content
         input(type="text" value="#{post.tags}" name="tag")
         input(type="hidden" value="#{post.id}" name="id")
       input(type="submit" value="Submit Edits")
+    form(action="/posts?_method=DELETE" method="POST")
+      input(type="hidden" value="#{post.id}" name="id")
+      input(type="submit" value="Delete Post")
